@@ -4,7 +4,9 @@ function Circle(radius) {
   this.radius = radius;
 
   let defaultLocation = { x: 0, y: 0 };
-  this.getDefaultLocation = function () {
+ 
+  this.getDefaultLocation = function ()
+  {
     return defaultLocation;
   };
   this.draw = function () {
@@ -15,7 +17,15 @@ function Circle(radius) {
     get: function ()
     {
       return defaultLocation;
-  } });
+    },
+    set: function (value)
+    {
+      if (!value.x || !value.y)
+        throw new Error("Invalid Location")
+      defaultLocation = value
+    }
+  });
+
 }
 
 const circle = new Circle(10);
